@@ -1,0 +1,26 @@
+.character {
+    position: fixed;
+    bottom: 20px;
+    z-index: 50;
+    pointer-events: auto;
+    transition: transform 0.1s linear;
+}
+
+.character img {
+    width: 80px;
+}
+
+/* corazones */
+.heart {
+    position: fixed;
+    font-size: 18px;
+    animation: floatUp 1s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-60px);
+        opacity: 0;
+    }
+}
