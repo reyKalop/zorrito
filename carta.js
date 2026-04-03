@@ -85,50 +85,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".card:not(.text)");
     cards.forEach(card => observer.observe(card));
 
-    /* 🎬 INTRO GIF */
-    const gifs = [
-        "fotos/GIFIntro/GIF1.mp4",
-        "fotos/GIFIntro/GIF2.mp4",
-        "fotos/GIFIntro/GIF3.mp4",
-        "fotos/GIFIntro/GIF4.mp4"
-    ];
+ <video id="introGif" autoplay muted loop playsinline></video>
+/* 🎬 INTRO VIDEO */
+const gifs = [
+    "fotos/GIFIntro/GIF1.mp4",
+    "fotos/GIFIntro/GIF2.mp4",
+    "fotos/GIFIntro/GIF3.mp4",
+    "fotos/GIFIntro/GIF4.mp4"
+];
 
-    const introGif = document.getElementById("introGif");
+const introGif = document.getElementById("introGif");
+const intro = document.getElementById("intro");
 
-    if (introGif) {
-        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
-        introGif.src = randomGif;
-    }
-    const intro = document.getElementById("intro");
+if (introGif) {
+    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+    introGif.src = randomGif;
+    introGif.load(); // 🔥 IMPORTANTE para que el video cargue
+}
 
-    if (intro && !popupMostrado) {
-        popupMostrado = true;
+if (intro && !popupMostrado) {
+    popupMostrado = true;
 
+    setTimeout(() => {
+        intro.style.opacity = "0";
+
+        setTimeout(() => {
+            intro.remove();
+            popupInicio();
+        }, 1000);
+
+    }, 2000);
+}
+
+/* 🔥 Evento correcto para video */
+if (introGif) {
+    introGif.onloadeddata = () => {
         setTimeout(() => {
             intro.style.opacity = "0";
 
             setTimeout(() => {
                 intro.remove();
                 popupInicio();
-            }, 1000);
+            }, 1500);
 
-        }, 2000);
-    }
-
-    if (introGif) {
-        introGif.onload = () => {
-            setTimeout(() => {
-                intro.style.opacity = "0";
-
-                setTimeout(() => {
-                    intro.remove();
-                    popupInicio();
-                }, 1500);
-
-            }, 1000);
-        };
-    }
-
+        }, 1000);
+    };
+}
     /* 🦊 PERSONAJES */
     if (typeof crearPersonaje === "function") {
         crearPersonaje({
