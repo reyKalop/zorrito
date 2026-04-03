@@ -1,0 +1,181 @@
+/* carta.css */
+@import url("engine/engine.css");
+@import url("engine/popups.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url("fotos/fondo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.header h1 {
+    font-size: 2.5em;
+}
+
+.music-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #ff6f91;
+    color: white;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1;
+    color: #333;
+    text-align: justify;
+}
+
+/* 🌸 FLORES */
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    top: -50px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) translateX(50px);
+        opacity: 0.8;
+    }
+}
+
+/* 🖼️ IMAGEN DENTRO DEL TEXTO */
+.img-center {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.img-center img {
+    width: 80%;
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.img-center img.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.card.text pre.caligrama {
+    white-space: pre;
+    text-align: center;
+    line-height: 1.35;
+    font-size: 17px;
+    margin: 0;
+}
+
+#intro {
+    filter: blur(4px) brightness(0.8);
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    opacity: 1;
+    transition: opacity 3s ease;
+    /* 🔥 fade lento */
+}
+
+#intro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 🔥 ocupa toda la pantalla */
+    animation: zoom 6s ease forwards;
+
+    opacity: 0.6;
+    /* 🔥 semitransparente desde el inicio */
+
+    filter: blur(2px);
+    /* opcional aesthetic */
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+#intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 60, 150, 0.35);
+    ;
+}
