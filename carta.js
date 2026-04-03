@@ -87,11 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* 🎬 INTRO GIF */
     const gifs = [
-        "fotos/GIFIntro/GIF1.gif",
-        "fotos/GIFIntro/GIF2.gif",
-        "fotos/GIFIntro/GIF3.gif",
-        "fotos/GIFIntro/GIF4.gif",
-        "fotos/GIFIntro/GIF5.gif"
+        "fotos/GIFIntro/GIF1.mp4",
+        "fotos/GIFIntro/GIF2.mp4",
+        "fotos/GIFIntro/GIF3.mp4",
+        "fotos/GIFIntro/GIF4.mp4"
     ];
 
     const introGif = document.getElementById("introGif");
