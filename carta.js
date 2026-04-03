@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".card:not(.text)");
     cards.forEach(card => observer.observe(card));
 
- <video id="introGif" autoplay muted loop playsinline></video>
+ 
 /* 🎬 INTRO VIDEO */
 const gifs = [
     "fotos/GIFIntro/GIF1.mp4",
